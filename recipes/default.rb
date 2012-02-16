@@ -25,12 +25,19 @@ r.run_action(:install)
 if node[:scout_agent][:key]
   Gem.clear_paths
   require 'scout'
+
   # we need to find where scout is installed
   scout_bin = `which scout`.strip()
+
+  # Run scout with --name set to node name.
+  # See: https://scoutapp.com/info/support#cloud_naming
+  name_part = node[:scout_agent][:rename] ? "--name=\"#{node.name}\"" : ""
+  scout_cmd = "#{scout_bin} #{name_part} #{node[:scout_agent][:key]}"
+
   # initialize scout gem
   bash "initialize scout" do
     code <<-EOH
-    #{scout_bin} #{node[:scout_agent][:key]}
+    #{scout_cmd}
     EOH
     cron_dir = value_for_platform(
       ["ubuntu", "debian"] => { "default" => "/var/spool/cron/crontabs/"},
@@ -39,11 +46,11 @@ if node[:scout_agent][:key]
     )
     not_if do File.exist?("#{cron_dir}/#{node[:scout_agent][:user]}") end
   end
-  
+
   # schedule scout agent to run via cron
   cron "scout_run" do
     user node[:scout_agent][:user]
-    command "#{scout_bin} #{node[:scout_agent][:key]} # Managed by chef"
+    command "#{scout_cmd} # Managed by chef"
     only_if do File.exist?("#{scout_bin}") end
   end
 else

@@ -16,12 +16,15 @@ It looks like:
 
 * scout_agent[:user] - User to run Scout agent under.  Will be created if it does not exist.  Default is 'scout'.
 * scout_agent[:group] - User group to run Scout agent under.  Will be created if it does not exist.  Default is 'scout'.
-* scout_agent[:version] - Gem version to install.  Default is 5.3.3.
+* scout_agent[:version] - Gem version to install.  Default is 5.5.3.
 * scout_agent[:key] - Used to validate your agent when it checks into the Scout server.
+* scout_agent[:rename] - Rename server to Chef node name? Default is false.
+
+**Note**:
 
 = USAGE:
 
-Include the `scout_agent` recipe to install Scout Agent and configure a Cron job to run it.  
+Include the `scout_agent` recipe to install Scout Agent and configure a Cron job to run it.
 
 Be sure to set the scout_agent[:key] attribute on every node where you want the agent to run. This is the default method for Scout - where each server has an individual key.
 
@@ -82,8 +85,10 @@ And as before, whatever key you specify on the node itself overrides anything el
 
 = LICENSE & AUTHOR:
 
+Author:: Ryan Roemer (<ryan@loose-bits.com>)
 Author:: Mike Fiedler (<miketheman@gmail.com>)
 Author:: Seth Chisamore (<schisamo@gmail.com>)
+Copyright:: 2012, Ryan Roemer
 Copyright:: 2011, Mike Fiedler
 Copyright:: 2010, Seth Chisamore
 

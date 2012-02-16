@@ -20,8 +20,6 @@ It looks like:
 * scout_agent[:key] - Used to validate your agent when it checks into the Scout server.
 * scout_agent[:rename] - Rename server to Chef node name? Default is false.
 
-**Note**:
-
 = USAGE:
 
 Include the `scout_agent` recipe to install Scout Agent and configure a Cron job to run it.

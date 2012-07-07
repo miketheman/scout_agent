@@ -2,3 +2,4 @@
 metadata.json
 .rvmrc
 tmp/
+test/support/Gemfile.lock

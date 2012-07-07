@@ -3,4 +3,6 @@ rvm:
   - 1.9.3
 gemfile:
   - test/support/Gemfile
-script: bundle exec rake
+script: bundle exec rake knife
+script: bundle exec rake tailor
+script: bundle exec rake foodcritic

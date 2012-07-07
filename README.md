@@ -1,3 +1,5 @@
+# scout_agent [![Build Status](https://secure.travis-ci.org/miketheman/scout_agent.png?branch=master)](http://travis-ci.org/miketheman/scout_agent)
+
 Description
 ===========
 Installs the [Scout Agent](http://scoutapp.com) gem and schedules it to run the [Scout-recommended way (via Cron)](https://scoutapp.com/info/support#cron).

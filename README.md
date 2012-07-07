@@ -5,6 +5,8 @@ Installs the [Scout Agent](http://scoutapp.com) gem and schedules it to run the 
 Requirements
 ============
 
+Tested with Chef 0.10.10, Ubuntu 10.04 LTS, CentOS 6.2, Amazon Linux 2012.03.
+
 Previously tested on Ubuntu 8.04 Server LTS, works well on others like CentOS/RHEL.
 
 The Scout Agent requires a valid Scout account. You also need a unique server key which is displayed in your Scout accounts 'server settings' tab.
@@ -17,6 +19,8 @@ Attributes
 ==========
 * scout_agent['user'] - User to run Scout agent under.  Will be created if it does not exist.  Default is 'scout'.
 * scout_agent['group'] - User group to run Scout agent under.  Will be created if it does not exist.  Default is 'scout'.
+* scout_agent['uid'] - User ID for Scout user. Defaults to 999.
+* scout_agent['gid'] - Group ID for Scout user. Defaults to 999.
 * scout_agent['version'] - Gem version to install.  Default is 5.5.4.
 * scout_agent['key'] - Used to validate your agent when it checks into the Scout server.
 * scout_agent['rename'] - Rename server to Chef node name? Default is false.
@@ -85,11 +89,11 @@ And as before, whatever key you specify on the node itself overrides anything el
 License and Author
 ==================
 
-Author:: Ryan Roemer (<ryan@loose-bits.com>)
 Author:: Mike Fiedler (<miketheman@gmail.com>)
+Author:: Ryan Roemer (<ryan@loose-bits.com>)
 Author:: Seth Chisamore (<schisamo@gmail.com>)
+Copyright:: 2011-2012, Mike Fiedler
 Copyright:: 2012, Ryan Roemer
-Copyright:: 2011, Mike Fiedler
 Copyright:: 2010, Seth Chisamore
 
 Licensed under the Apache License, Version 2.0 (the "License");

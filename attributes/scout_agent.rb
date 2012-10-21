@@ -20,5 +20,5 @@ default['scout_agent']['user'] = "scout"
 default['scout_agent']['group'] = "scout"
 default['scout_agent']['uid'] = 999
 default['scout_agent']['gid'] = 999
-default['scout_agent']['version'] = "5.5.5"
+default['scout_agent']['version'] = "5.5.10"
 default['scout_agent']['rename'] = false

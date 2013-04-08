@@ -1,9 +1,7 @@
 language: ruby
 rvm:
   - 1.9.3
+  - 2.0.0
 gemfile:
-  - test/support/Gemfile
-script:
-  - bundle exec rake knife
-  - bundle exec rake tailor
-  - bundle exec rake foodcritic
+  - gemfiles/Gemfile.chef-11
+  - gemfiles/Gemfile.chef-10
